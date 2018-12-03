@@ -1,0 +1,37 @@
+stages:
+  - lint
+  - build
+
+lint/css:
+  stage: lint
+  cache:
+    key: node_modules
+    paths:
+    - node_modules/
+  script:
+    - yarn install
+    - yarn run lint:css
+
+lint/js:
+  stage: lint
+  cache:
+    key: node_modules
+    paths:
+    - node_modules/
+  script:
+    - yarn install
+    - yarn run lint:js
+
+build/front:
+  stage: build
+  cache:
+    key: node_modules
+    paths:
+    - node_modules/
+  script:
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - public
+    expire_in: 60min

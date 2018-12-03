@@ -1,0 +1,40 @@
+{
+  "name": "starter-front",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@git.netkata.com:netkata/starter-front.git",
+  "author": "Krzysztof Bezrąk <krzysztof@netkata.com>",
+  "license": "MIT",
+  "private": true,
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "@pikpok/webpack": "0.0.9",
+    "babel-core": "^7.0.0-beta.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-react": "^7.0.0-beta.3",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "eslint": "5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "stylelint": "^9.9.0",
+    "stylelint-selector-bem-pattern": "^2.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "4.1.3",
+    "jquery": "^3.3.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server -d --hot",
+    "build": "webpack -p",
+    "lint:js": "eslint src",
+    "lint:css": "stylelint src/scss"
+  }
+}
