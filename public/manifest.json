@@ -1,0 +1,21 @@
+{
+    "short_name": "Starter",
+    "name": "Frontend Starter",
+    "icons": [
+        {
+            "src": "/img/tile.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/tile.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#ec3566",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#ec3566"
+}
