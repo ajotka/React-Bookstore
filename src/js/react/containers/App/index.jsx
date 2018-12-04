@@ -34,7 +34,7 @@ export default class App extends Component {
                     <div className="container">
                         <div className="row justify-content-center">
                             <Order/>
-                            <Inventory/>
+                            <Inventory books={this.state.books}/>
                             <AdminPanel books={this.state.books} addBook={this.addNewBook}/>
                         </div>
                     </div>
