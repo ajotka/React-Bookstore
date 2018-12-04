@@ -2,25 +2,37 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Inventory from '../../components/Inventory/Inventory';
 import Order from '../../components/Order/Order';
-import AdminPanel from '../../components/AdminPanel/AdminPanel';
 
 export default class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            books : []
+            books : [],
+            order : []
         }
     }
 
-    addNewBook = (book) => {
+    // addNewBook = (book) => {
+    //
+    //     let newBooks = [...this.state.books];
+    //
+    //     newBooks.push(book);
+    //
+    //     this.setState({
+    //         books : newBooks
+    //     });
+    // };
 
-        let newBooks = [...this.state.books];
-
-        newBooks.push(book);
-
+    addToOrder = (book) => {
         this.setState({
-            books : newBooks
+            order : [...this.state.order, book]
+        });
+    };
+
+    removeFromOrder = (bookName) => {
+        this.setState({
+            order : this.state.order.filter( book => bookName !== book.name )
         });
     };
 
@@ -33,9 +45,8 @@ export default class App extends Component {
                 <main className="main">
                     <div className="container">
                         <div className="row justify-content-center">
-                            <Order/>
-                            <Inventory books={this.state.books}/>
-                            <AdminPanel books={this.state.books} addBook={this.addNewBook}/>
+                            <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+                            <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
                         </div>
                     </div>
                 </main>

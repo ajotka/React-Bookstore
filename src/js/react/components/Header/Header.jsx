@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 class Header extends React.Component {
 
@@ -44,6 +45,7 @@ class Header extends React.Component {
             <header className="header">
                 <div className="container">
                     <div className="col-md-12" style={headerClasses} onClick={this.handleClick}>{this.state.bookstoreName}</div>
+                    <Link to="/admin">Admin Panel</Link>
                 </div>
             </header>
         );

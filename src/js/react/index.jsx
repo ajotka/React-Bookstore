@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import App from './containers/App';
+import Router from "./components/Router/Router";
 
 window.addEventListener('load', () => {
     ReactDOM.render(
-        <App />,
+        <Router />,
         document.getElementById('react-app'),
     );
 });

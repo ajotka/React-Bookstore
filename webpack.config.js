@@ -20,6 +20,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, 'public'),
             filename: 'main.js',
+            crossOriginLoading: 'anonymous',
         },
 
         resolve: {

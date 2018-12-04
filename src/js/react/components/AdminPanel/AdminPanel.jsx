@@ -1,11 +1,12 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
+import {fbase} from "../../fbase";
 
 class AdminPanel extends React.Component {
 
     constructor() {
         super();
         this.state = {
+            books : [],
             book : {
                 name : "",
                 author : "",
@@ -43,9 +44,10 @@ class AdminPanel extends React.Component {
 
         let newBook = {...this.state.book};
 
-        this.props.addBook(newBook);
+        //this.props.addBook(newBook);
 
         this.setState({
+            books : [...this.state.books, newBook],
             book : {
                 name : "",
                 author : "",
@@ -56,6 +58,17 @@ class AdminPanel extends React.Component {
         });
 
     };
+
+    componentDidMount() {
+        this.ref = fbase.syncState('bookstore/books', {
+            context: this,
+            state: 'books'
+        });
+    }
+
+    componentWillUnmount() {
+        fbase.removeBinding(this.ref);
+    }
 
     render() {
         return (
