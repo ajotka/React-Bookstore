@@ -6,6 +6,24 @@ import AdminPanel from '../../components/AdminPanel/AdminPanel';
 
 export default class App extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            books : []
+        }
+    }
+
+    addNewBook = (book) => {
+
+        let newBooks = [...this.state.books];
+
+        newBooks.push(book);
+
+        this.setState({
+            books : newBooks
+        });
+    };
+
     render() {
         return (
             <div>
@@ -17,7 +35,7 @@ export default class App extends Component {
                         <div className="row justify-content-center">
                             <Order/>
                             <Inventory/>
-                            <AdminPanel/>
+                            <AdminPanel books={this.state.books} addBook={this.addNewBook}/>
                         </div>
                     </div>
                 </main>

@@ -10,7 +10,7 @@ class Header extends React.Component {
             textColor : "white",
             backgroundColor : "black"
         };
-    };
+    }
 
     handleClick = () => {
 
@@ -43,9 +43,7 @@ class Header extends React.Component {
         return (
             <header className="header">
                 <div className="container">
-                    <div className="col-md-12" style={headerClasses} onClick={this.handleClick}>
-                        {this.state.bookstoreName}
-                        </div>
+                    <div className="col-md-12" style={headerClasses} onClick={this.handleClick}>{this.state.bookstoreName}</div>
                 </div>
             </header>
         );
