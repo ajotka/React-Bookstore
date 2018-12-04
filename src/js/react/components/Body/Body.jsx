@@ -7,7 +7,7 @@ class Body extends React.Component {
             <div className="row justify-content-center">
 
             </div>
-        )
+        );
     }
 }
 

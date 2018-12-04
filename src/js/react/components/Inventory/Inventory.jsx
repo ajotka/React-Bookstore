@@ -7,7 +7,7 @@ class Inventory extends React.Component {
             <div className="col-md-4">
                 Inventory
             </div>
-        )
+        );
     }
 }
 

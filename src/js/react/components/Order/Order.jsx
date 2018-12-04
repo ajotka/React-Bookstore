@@ -7,7 +7,7 @@ class Order extends React.Component {
             <div className="col-md-4">
                 Order
             </div>
-        )
+        );
     }
 }
 
