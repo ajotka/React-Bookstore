@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import Button from '../../components/Button';
+import Button from '../../components/Button/Button';
+import Header from '../../components/Header/Header';
+import Inventory from '../../components/Inventory/Inventory';
+import Order from '../../components/Order/Order';
+import AdminPanel from '../../components/AdminPanel/AdminPanel';
 
 export default class App extends Component {
     state = {
@@ -16,8 +20,23 @@ export default class App extends Component {
         return (
             <div>
                 {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
-                <marquee>Testing React, counter is {counter}. Greetings from <a href="https://netkata.com">https://netkata.com</a></marquee>
-                <Button text="Click to increase this running weird sample text" onClickHandler={this.incrementCounter} />
+                <Header/>
+
+                <main className="main">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <Order/>
+                            <Inventory/>
+                            <AdminPanel/>
+                        </div>
+                    </div>
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <marquee>Testing React, counter is {counter}. Greetings from <a href="https://netkata.com">https://netkata.com</a></marquee>
+                            <Button text="Click to increase this running weird sample text" onClickHandler={this.incrementCounter} />
+                        </div>
+                    </div>
+                </main>
             </div>
         );
     }
