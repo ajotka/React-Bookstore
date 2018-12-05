@@ -3,11 +3,11 @@ import packageJson from '../../../../../package.json';
 
 const PageNotFound = () => {
     return (
-        <React.Fragment>
-            <h1>Page Not Found</h1>
-            <p>Please check URL address</p>
+        <div className="notfound">
+            <p className="error-text">Page Not Found</p>
+            <p>404</p>
             {console.log('public url: ',packageJson.homepage)}
-        </React.Fragment>
+        </div>
     );
 };
 
