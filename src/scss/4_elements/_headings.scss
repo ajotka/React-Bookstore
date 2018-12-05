@@ -10,6 +10,7 @@ h3,
 h4,
 h5,
 h6 {
+    color: #A2A4A4;
     font-size: rem($base-font-size);
     margin: 0;
 }
@@ -25,7 +26,12 @@ h6 {
     margin-bottom: 0.5em;
 }
 
-.h1 {}
+.h1 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1em auto 2em;
+}
 
 .h2 {}
 

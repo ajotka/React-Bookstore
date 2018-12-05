@@ -1,17 +1,16 @@
 .notfound {
-  background: #111111;
   height: 100vh;
   width: 100vw;
   padding: 300px 20px;
   font: 75px/75px Monoton, cursive;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
-  color: red;
+  text-shadow: 0 0 80px #0DB8DE, 0 0 30px #007bff, 0 0 6px #007bff;
+  color: #0DB8DE;
   word-spacing: 10px;
 }
 
 .error-text {
   color: #fff;
-  text-shadow: 0 0 80px #ffffff, 0 0 30px #008000, 0 0 6px #0000ff;
+  text-shadow: 0 0 80px #ffffff, 0 0 30px #0DB8DE, 0 0 6px #007bff;
 }

@@ -1,3 +1,32 @@
 /*
 .btn
  */
+
+.btn {
+  background: #0DB8DE;
+  border: 5px solid #0DB8DE;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: block;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid #0DB8DE;
+    color: #0DB8DE;
+
+    &:hover {
+      background: #0DB8DE;
+      color: #1a2125;
+    }
+  }
+
+  &--center {
+    margin: 0 auto;
+  }
+}

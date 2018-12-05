@@ -109,15 +109,24 @@ class AdminPanel extends React.Component {
         return (
             <div>
                 {!this.state.loggedIn &&
-                    <form onSubmit={this.authenticate}>
-                        <div className="form-group">
-                            <input type="text" placeholder="email" name="email" id="email" className="form-control" onChange={this.handleLoginChange} value={this.state.email} />
+                    <div className="row justify-content-center">
+                        <div className="col-md-3">
+                            <div className="login-panel">
+                                <h1 className="h1">Admin Login</h1>
+                                <form onSubmit={this.authenticate}>
+                                    <div className="form-group">
+                                        <label className="form-control-label">EMAIL</label>
+                                        <input type="text" name="email" id="email" className="form-control" onChange={this.handleLoginChange} value={this.state.email} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label className="form-control-label">PASSWORD</label>
+                                        <input type="password" name="password" id="password" className="form-control" onChange={this.handleLoginChange} value={this.state.password} />
+                                    </div>
+                                    <button type="submit" className="btn btn--outline btn--center">Sign In</button>
+                                </form>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <input type="password" name="password" id="password" className="form-control" onChange={this.handleLoginChange} value={this.state.password} />
-                        </div>
-                        <button type="submit" className="button">LogIn</button>
-                    </form>
+                    </div>
                 }
                 {this.state.loggedIn &&
                     <div className="col-md-4">
