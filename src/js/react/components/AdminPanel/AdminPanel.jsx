@@ -1,5 +1,6 @@
 import React from 'react';
-import {fbase} from "../../fbase";
+import {fbase, firebaseApp} from "../../fbase";
+import Button from "../Button/Button";
 
 class AdminPanel extends React.Component {
 
@@ -13,9 +14,18 @@ class AdminPanel extends React.Component {
                 description : "",
                 onStock : true,
                 image : ""
-            }
+            },
+            loggedIn : false,
+            email: "",
+            password: ""
         };
     }
+
+    handleLoginChange = (event) => {
+        this.setState({
+            [event.target.name] : event.target.value
+        });
+    };
 
     handleChange = (event) => {
 
@@ -75,28 +85,59 @@ class AdminPanel extends React.Component {
         fbase.removeBinding(this.ref);
     }
 
+    authenticate = (event) => {
+
+        event.preventDefault();
+
+        firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then( () => {
+                this.setState({
+                    loggedIn : true
+                });
+            })
+            .catch( () => {
+                //console.log("Wrong email or password");
+            });
+
+    };
+
     render() {
         return (
-            <div className="col-md-4">
-                <form onSubmit={this.addNewBook}>
-                    <div className="form-group">
-                        <input type="text" placeholder="Book Name" id="nameInput" name="name" className="form-control" onChange={this.handleChange} value={this.state.book.name} />
+            <div>
+                {!this.state.loggedIn &&
+                    <form onSubmit={this.authenticate}>
+                        <div className="form-group">
+                            <input type="text" placeholder="email" name="email" id="email" className="form-control" onChange={this.handleLoginChange} value={this.state.email} />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" name="password" id="password" className="form-control" onChange={this.handleLoginChange} value={this.state.password} />
+                        </div>
+                        <button type="submit" className="button">LogIn</button>
+                    </form>
+                }
+                {this.state.loggedIn &&
+                    <div className="col-md-4">
+                        <form onSubmit={this.addNewBook}>
+                            <div className="form-group">
+                                <input type="text" placeholder="Book Name" id="nameInput" name="name" className="form-control" onChange={this.handleChange} value={this.state.book.name}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" placeholder="Book Author" id="authorInput" name="author" className="form-control" onChange={this.handleChange} value={this.state.book.author}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="textarea" placeholder="Book Description" id="descriptionInput" name="description" className="form-control" onChange={this.handleChange} value={this.state.book.description}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="checkbox" placeholder="Book OnStock" id="onStockInput" name="onStock" className="form-check-input" onChange={this.handleChange} value={this.state.book.onStock}/>
+                                <label htmlFor="onStockInput" className="form-check-label">On Stock</label>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" placeholder="Book Image" id="imageInput" name="image" className="form-control" onChange={this.handleChange} value={this.state.book.image}/>
+                            </div>
+                            <button type="submit" className="button">Add</button>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Book Author" id="authorInput" name="author" className="form-control" onChange={this.handleChange} value={this.state.book.author} />
-                    </div>
-                    <div className="form-group">
-                        <input type="textarea" placeholder="Book Description" id="descriptionInput" name="description" className="form-control" onChange={this.handleChange} value={this.state.book.description} />
-                    </div>
-                    <div className="form-group">
-                        <input type="checkbox" placeholder="Book OnStock" id="onStockInput" name="onStock" className="form-check-input" onChange={this.handleChange} value={this.state.book.onStock} />
-                        <label htmlFor="onStockInput" className="form-check-label">On Stock</label>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Book Image" id="imageInput" name="image" className="form-control" onChange={this.handleChange} value={this.state.book.image} />
-                    </div>
-                    <button type="submit" className="button">Add</button>
-                </form>
+                }
             </div>
         );
     }
