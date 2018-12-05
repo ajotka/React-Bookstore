@@ -3,8 +3,5 @@ import React from 'react';
 import Router from "./components/Router/Router";
 
 window.addEventListener('load', () => {
-    ReactDOM.render(
-        <Router />,
-        document.getElementById('react-app'),
-    );
+    ReactDOM.render(<Router />, document.getElementById('react-app'));
 });

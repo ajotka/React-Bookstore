@@ -46,8 +46,13 @@ class AdminPanel extends React.Component {
 
         //this.props.addBook(newBook);
 
+        if (Array.isArray(this.state.books)) {
+            this.setState({books: [...this.state.books, newBook]})
+        } else {
+            this.setState({books: [newBook]})
+        }
+
         this.setState({
-            books : [...this.state.books, newBook],
             book : {
                 name : "",
                 author : "",

@@ -1,4 +1,6 @@
 const path = require('path');
+const browserPlugin = require('webpack-browser-plugin');
+//const chromeUserDataDir = 'localhost:3333';
 
 const { config } = require('@pikpok/webpack');
 
@@ -28,6 +30,19 @@ module.exports = (env, argv) => {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
 
+        // plugins: [
+        //     new browserPlugin({
+        //         openOptions: {
+        //             app: [
+        //                 'chrome',
+        //                 //'--incognito',
+        //                 '--disable-web-security', // to enable CORS
+        //                 '--user-data-dir=' + path.resolve(__dirname, 'public') // to let Chrome create and store here developers plugins, settings, etc.
+        //             ]
+        //         }
+        //     })
+        // ],
+
         module: { 
             rules: [{ 
                 test: /\.jsx?$/, 
@@ -39,6 +54,11 @@ module.exports = (env, argv) => {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             hot: true,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+                "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+            }
         },
     });
 
