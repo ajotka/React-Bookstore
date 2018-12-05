@@ -1,11 +1,11 @@
 {
-  "name": "starter-front",
-  "version": "0.0.1",
+  "name": "react-redux-sample",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "git@git.netkata.com:netkata/starter-front.git",
-  "author": "Krzysztof Bezrąk <krzysztof@netkata.com>",
+  "author": "Agata AJOTKA Dobrowolska <agata@netkata.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "browserslist": [
     "last 2 versions"
   ],
@@ -45,5 +45,6 @@
     "build": "webpack -p",
     "lint:js": "eslint src",
     "lint:css": "stylelint src/scss"
-  }
+  },
+  "homepage": ""
 }
