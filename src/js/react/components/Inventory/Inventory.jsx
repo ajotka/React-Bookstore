@@ -29,7 +29,7 @@ class Inventory extends React.Component {
         });
 
         return (
-            <div className="col-md-12">
+            <div className="col-md-12 inventory">
                 <div className="row justify-content-center">
                     {bookListing}
                 </div>

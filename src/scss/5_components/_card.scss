@@ -1,0 +1,72 @@
+.card {
+    float: left;
+    margin: 0 23.5px 23.5px 0;
+    position: relative;
+    width: 100%;
+    min-height: 275px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.35s cubic-bezier(0.35, 0, 0.25, 1);
+    border-radius: 2px;
+    background: #1a2125;
+    border: 2px solid #111111;
+    padding: 0;
+
+    &:hover {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    &__header {
+        padding: 15px;
+        
+        &-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+
+            &:after {
+                content: '';
+                width: 100px;
+                height: 2px;
+                background: #0DB8DE;
+                position: absolute;
+                bottom: -10px;
+                left: calc(50% - 50px);
+            }
+        }
+    }
+
+    &__body {
+        padding: 15px;
+        margin-bottom: 10px;
+
+        h1 {
+            text-align: center;
+            padding: 40px 20px 20px;
+            font-size: 34px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        img {
+            float: left;
+            margin-right: 15px;
+        }
+
+        p {
+            padding: 7px 23px;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 200;
+            line-height: 1.6em;
+            letter-spacing: 0.02em;
+
+            span {
+                font-weight: bold;
+                display: block;
+            }
+        }
+    }
+}
