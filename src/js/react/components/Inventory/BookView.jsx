@@ -4,7 +4,7 @@ export default class BookView extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="col-md-3">
                 <b>{this.props.book.name}</b><br />
                 <i>{this.props.book.author}</i><br />
                 <img src={this.props.book.image} width="100px" height="100px" alt={this.props.book.name} />

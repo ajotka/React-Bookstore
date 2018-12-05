@@ -1,21 +1,21 @@
 {
-    "short_name": "Starter",
-    "name": "Frontend Starter",
+    "short_name": "Bookstore",
+    "name": "Bookstore - React & Redux",
     "icons": [
         {
-            "src": "/img/tile.png",
+            "src": "/favicons/favicon.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/img/tile.png",
+            "src": "/favicons/favicon.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "start_url": "/",
-    "background_color": "#ec3566",
+    "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#ec3566"
+    "theme_color": "#000000"
 }

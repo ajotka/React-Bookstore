@@ -42,3 +42,58 @@ h6 {
 .h5 {}
 
 .h6 {}
+
+.header {
+    width: 100%;
+    height: 64px;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    background: #1A2226;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    display: flex;
+
+    &__logo {
+        background: url("../../img/logo.png");
+        width: 34px;
+        height: 34px;
+        margin: 0 30px 0 15px;
+        background-size: contain;
+    }
+
+    &__title {
+        .h1 {
+            line-height: 34px;
+            font-size: 24px;
+            color: #fff;
+            margin: 0px;
+
+            &:before {
+                content: "|";
+                top: -2px;
+                height: 100%;
+                margin-right: 30px;
+                color: #eee;
+                display: inline-block;
+                position: relative;
+            }
+        }
+    }
+
+    &__icons {
+        height: 34px;
+        color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        right: 15px;
+        text-align: center;
+        cursor: pointer;
+
+        .icon {
+            margin: 0 10px;
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}

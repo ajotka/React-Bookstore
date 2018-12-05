@@ -6,7 +6,7 @@ class Header extends React.Component {
     constructor() {
         super();
         this.state = {
-            bookstoreName : "Black Books",
+            bookstoreName : "Bookstore",
             clicked : true,
             textColor : "white",
             backgroundColor : "black"
@@ -42,10 +42,18 @@ class Header extends React.Component {
         };
 
         return (
+            //style={headerClasses}
             <header className="header">
-                <div className="container">
-                    <div className="col-md-12" style={headerClasses} onClick={this.handleClick}>{this.state.bookstoreName}</div>
-                    <Link to="/admin">Admin Panel</Link>
+                <div className="header__logo">
+                </div>
+                <div className="header__title">
+                    <h1 className="h1">
+                        {this.state.bookstoreName}
+                    </h1>
+                </div>
+                <div className="header__icons">
+                    <Link to="/admin"><i className="icon icon-shopping-basket"></i></Link>
+                    <Link to="/admin"><i className="icon icon-user"></i></Link>
                 </div>
             </header>
         );
