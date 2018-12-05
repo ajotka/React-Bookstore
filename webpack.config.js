@@ -60,6 +60,8 @@ module.exports = (env, argv) => {
                 "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
             }
         },
+
+        devtool: 'eval-source-map',
     });
 
     return generatedConfig;
