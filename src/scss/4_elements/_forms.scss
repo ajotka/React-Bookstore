@@ -7,7 +7,7 @@ label {
   margin-bottom: 0px;
 }
 
-input[type=text] {
+input[type=text], input[type=textarea] {
   background-color: #1A2226;
   border: none;
   border-bottom: 2px solid #0DB8DE;
@@ -59,4 +59,65 @@ input[type=password] {
   background: #1a2125;
   padding: 50px;
   margin-top: 100px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.checkbox__indicator {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #ECF0F5;
+}
+.form-group:hover input ~ .checkbox__indicator,
+.form-group input:focus ~ .checkbox__indicator {
+  background: #ccc;
+}
+.form-group input:checked ~ .checkbox__indicator {
+  background: #0DB8DE;
+}
+.form-group:hover input:not([disabled]):checked ~ .checkbox__indicator,
+.form-group input:checked:focus ~ .checkbox__indicator {
+  background: #0e647d;
+}
+.form-group input:disabled ~ .checkbox__indicator {
+  background: #ECF0F5;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.checkbox__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.form-group input:checked ~ .checkbox__indicator:after {
+  display: block;
+}
+.form-group--checkbox {
+  position: relative;
+
+  label {
+    margin-left: 30px;
+  }
+
+  .checkbox__indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #ECF0F5;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  input:disabled ~ .checkbox__indicator:after {
+    border-color: #7b7b7b;
+  }
 }
