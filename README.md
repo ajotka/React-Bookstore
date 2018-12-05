@@ -1,7 +1,7 @@
 # Bookstore - React & Redux
 
-## Demo
-[SOON...](https://#)
+Demo:
+[https://ajotka.github.io/React-Bookstore/](https://ajotka.github.io/React-Bookstore/)
 
 ## Introduction
 This APP was created on [Udemy - React Course](https://www.udemy.com/react-jest/). 
