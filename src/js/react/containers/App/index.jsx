@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Inventory from '../../components/Inventory/Inventory';
 import Order from '../../components/Order/Order';
+import Footer from "../../components/Footer/Footer";
 
 export default class App extends Component {
 
@@ -54,6 +55,8 @@ export default class App extends Component {
                         </div>
                     </div>
                 </main>
+
+                <Footer />
             </div>
         );
     }
