@@ -40,7 +40,11 @@ export default class App extends Component {
         return (
             <div>
                 {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
-                <Header/>
+                <Header
+                    store={true}
+                    user={true}
+                    logout={false}
+                />
 
                 <main className="main">
                     <div className="container">

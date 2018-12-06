@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import firebaseApp from "firebase";
 
 class Header extends React.Component {
 
@@ -15,34 +16,13 @@ class Header extends React.Component {
 
     handleClick = () => {
 
-        if(this.state.clicked) {
-            this.setState({
-                bookstoreName : "White Books",
-                textColor : "black",
-                backgroundColor : "white"
-            });
-        } else {
-            this.setState({
-                bookstoreName : "Black Books",
-                textColor : "white",
-                backgroundColor : "black"
-            });
-        }
+        firebaseApp.auth().signOut();
 
-        this.setState({
-            clicked : !this.state.clicked
-        });
     };
 
     render() {
 
-        let headerClasses = {
-            color : this.state.textColor,
-            backgroundColor : this.state.backgroundColor
-        };
-
         return (
-            //style={headerClasses}
             <header className="header">
                 <div className="header__logo">
                 </div>
@@ -52,8 +32,9 @@ class Header extends React.Component {
                     </h1>
                 </div>
                 <div className="header__icons">
-                    <Link to="/admin"><i className="icon icon-shopping-basket"></i></Link>
-                    <Link to="/admin"><i className="icon icon-user"></i></Link>
+                    {this.props.store && <Link to="/admin"><i className="icon icon-shopping-basket"></i></Link> }
+                    {this.props.user && <Link to="/admin"><i className="icon icon-user"></i></Link> }
+                    {this.props.logout && <Link to="/" onClick={this.handleClick}><i className="icon icon-sign-out"></i></Link> }
                 </div>
             </header>
         );
