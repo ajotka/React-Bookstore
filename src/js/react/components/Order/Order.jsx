@@ -12,8 +12,11 @@ class Order extends React.Component {
         });
 
         return (
-            <div className="orders">
+            <div className="orders" style={this.props.style}>
                 {orderedBooks}
+                {orderedBooksLength === 0 &&
+                    <div>Your order is empty :(</div>
+                }
                 {orderedBooksLength > 0 &&
                     <button className="btn btn--center orders__button">Order</button>
                 }

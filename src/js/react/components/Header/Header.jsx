@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import firebaseApp from "firebase";
-import OrderView from "../Order/OrderView";
 
 class Header extends React.Component {
 
@@ -15,7 +14,7 @@ class Header extends React.Component {
         };
     }
 
-    handleClick = () => {
+    handleClickLogout = () => {
 
         firebaseApp.auth().signOut();
 
@@ -23,7 +22,10 @@ class Header extends React.Component {
 
     render() {
 
-        const orderedBooks = this.props.order.length;
+        let orderedBooks = 0;
+        if (this.props.store) {
+            orderedBooks = this.props.order.length;
+        }
 
         return (
             <header className="header">
@@ -36,12 +38,10 @@ class Header extends React.Component {
                 </div>
                 <div className="header__icons">
                     {this.props.store &&
-                        <Link to="/admin">
-                            <i className="icon icon-shopping-basket" data-badge={orderedBooks}></i>
-                        </Link>
+                            <i className="icon icon-shopping-basket" data-badge={orderedBooks} onClick={ () => this.props.showOrderList() }></i>
                     }
                     {this.props.user && <Link to="/admin"><i className="icon icon-user"></i></Link> }
-                    {this.props.logout && <Link to="/" onClick={this.handleClick}><i className="icon icon-sign-out"></i></Link> }
+                    {this.props.logout && <Link to="/" onClick={this.handleClickLogout}><i className="icon icon-sign-out"></i></Link> }
                 </div>
             </header>
         );

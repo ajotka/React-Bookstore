@@ -9,7 +9,9 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            order : []
+            order : [],
+            clicked : false,
+            display : "none"
         }
     }
 
@@ -25,7 +27,32 @@ export default class App extends Component {
         });
     };
 
+    showOrderList = () => {
+
+        if(this.state.clicked) {
+            this.setState({
+                display : "block"
+            })
+        } else {
+            this.setState({
+                display : "none"
+            })
+        }
+
+        this.setState({
+            clicked : !this.state.clicked
+        })
+
+        console.log(this.state.clicked);
+
+    };
+
     render() {
+
+        let orderListCss = {
+            display : this.state.display
+        };
+
         return (
             <div>
                 {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
@@ -35,8 +62,9 @@ export default class App extends Component {
                     logout={false}
                     order={this.state.order}
                     removeFromOrder={this.removeFromOrder}
+                    showOrderList={this.showOrderList}
                 />
-                <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+                <Order style={orderListCss} order={this.state.order} removeFromOrder={this.removeFromOrder}/>
 
                 <main className="main">
                     <div className="container">
