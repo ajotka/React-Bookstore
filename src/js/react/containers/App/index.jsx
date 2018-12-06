@@ -9,21 +9,9 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            //books : [],
             order : []
         }
     }
-
-    // addNewBook = (book) => {
-    //
-    //     let newBooks = [...this.state.books];
-    //
-    //     newBooks.push(book);
-    //
-    //     this.setState({
-    //         books : newBooks
-    //     });
-    // };
 
     addToOrder = (book) => {
         this.setState({
@@ -45,12 +33,14 @@ export default class App extends Component {
                     store={true}
                     user={true}
                     logout={false}
+                    order={this.state.order}
+                    removeFromOrder={this.removeFromOrder}
                 />
+                <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
 
                 <main className="main">
                     <div className="container">
                         <div className="row justify-content-center">
-                            <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
                             <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
                         </div>
                     </div>

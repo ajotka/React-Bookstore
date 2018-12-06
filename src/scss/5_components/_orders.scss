@@ -1,0 +1,73 @@
+.orders {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  right: 75px;
+  top: 10px;
+  background: #1A2226;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+
+  &:after {
+    content: "";
+    display: block;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    margin-left: -10px;
+    position: absolute;
+    left: auto;
+    right: 0;
+    border-color: transparent #1A2226 transparent transparent;
+    top: -10px;
+    bottom: auto;
+  }
+
+  &__button {
+    height: 40px;
+    padding: 0 20px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    align-items: center;
+
+    &:nth-child(n+2) {
+      border-top: 1px solid #111111;
+      padding: 20px 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &-image {
+      margin-right: 15px;
+      width: 50px;
+      height: 50px;
+    }
+
+    &-button {
+      width: 75px;
+      padding: 0;
+      height: 30px;
+      font-size: 0.8em;
+    }
+
+    &-book {
+      width: calc( 100% - 50px - 75px );
+      display: flex;
+      flex-direction: column;
+
+      & > .book__title {
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+
+      & > .book__author {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

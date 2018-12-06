@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import firebaseApp from "firebase";
+import OrderView from "../Order/OrderView";
 
 class Header extends React.Component {
 
@@ -22,6 +23,8 @@ class Header extends React.Component {
 
     render() {
 
+        const orderedBooks = this.props.order.length;
+
         return (
             <header className="header">
                 <div className="header__logo">
@@ -32,7 +35,11 @@ class Header extends React.Component {
                     </h1>
                 </div>
                 <div className="header__icons">
-                    {this.props.store && <Link to="/admin"><i className="icon icon-shopping-basket"></i></Link> }
+                    {this.props.store &&
+                        <Link to="/admin">
+                            <i className="icon icon-shopping-basket" data-badge={orderedBooks}></i>
+                        </Link>
+                    }
                     {this.props.user && <Link to="/admin"><i className="icon icon-user"></i></Link> }
                     {this.props.logout && <Link to="/" onClick={this.handleClick}><i className="icon icon-sign-out"></i></Link> }
                 </div>
