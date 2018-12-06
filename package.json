@@ -1,11 +1,11 @@
 {
-  "name": "react-redux-sample",
-  "version": "1.0.0",
+  "name": "starter-front",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "git@git.netkata.com:netkata/starter-front.git",
-  "author": "Agata AJOTKA Dobrowolska <agata@netkata.com>",
+  "author": "Krzysztof Bezrąk <krzysztof@netkata.com>",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "browserslist": [
     "last 2 versions"
   ],
