@@ -35,6 +35,7 @@
         .card__footer {
             margin-bottom: 30px;
         }
+
     }
 
     &--horizontal {
@@ -63,12 +64,15 @@
 
         .card__footer {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
 
             .btn {
                 height: 50px;
             }
         }
+
     }
 
     &:hover {
