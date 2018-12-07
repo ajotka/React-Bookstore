@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import { ToastContainer } from "react-toastr";
 import OrderSummaryView from "./OrderSummaryView";
 import Header from "../Header/Header";
 
@@ -29,6 +30,7 @@ class OrderSummary extends React.Component {
 
         let orderedBooks = 0;
         let bookListing = "";
+        let container;
 
         if( this.state.order ) {
             bookListing = this.state.order.map((book, index) => {
@@ -44,6 +46,11 @@ class OrderSummary extends React.Component {
                     user={true}
                     logout={false}
                     order={this.state.order}
+                />
+
+                <ToastContainer
+                    ref={ref => container = ref}
+                    className="toast-bottom-right"
                 />
 
                 <main className="main">
@@ -80,7 +87,11 @@ class OrderSummary extends React.Component {
                                             <p><span>Date of return:</span> 10.10.2018</p>
                                         </div>
                                         <div className="card__footer">
-                                            <button className="btn btn--center">Proceed</button>
+                                            <button className="btn btn--center" onClick={() =>
+                                                container.success(`You can reciept your order from 10.10.2018`, `Success`, {
+                                                    closeButton: true,
+                                                });
+                                            }>Proceed</button>
                                         </div>
                                     </div>
                                 </React.Fragment>
