@@ -23,7 +23,7 @@ class Header extends React.Component {
     render() {
 
         let orderedBooks = 0;
-        if (this.props.store) {
+        if (this.props.store && this.props.order) {
             this.props.order.map((order) => {
                 orderedBooks += order.qty;
             });

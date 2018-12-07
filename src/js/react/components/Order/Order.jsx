@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderView from "./OrderView";
+import {Link} from "react-router-dom";
 
 class Order extends React.Component {
 
@@ -18,7 +19,7 @@ class Order extends React.Component {
                     <div>Your order is empty :(</div>
                 }
                 {orderedBooksLength > 0 &&
-                    <button className="btn btn--center orders__button">Order</button>
+                <Link to="/order"><button className="btn btn--center orders__button">Order</button></Link>
                 }
             </div>
         );

@@ -53,7 +53,9 @@ module.exports = (env, argv) => {
 
         devServer: {
             contentBase: path.join(__dirname, 'public'),
+            stats: "errors-only",
             hot: true,
+            historyApiFallback: true,
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",

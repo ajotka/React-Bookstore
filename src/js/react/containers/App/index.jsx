@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Inventory from '../../components/Inventory/Inventory';
 import Order from '../../components/Order/Order';
 import Footer from "../../components/Footer/Footer";
+import OrderSummary from "../../components/Order/OrderSummary";
 
 export default class App extends Component {
 
@@ -40,6 +41,8 @@ export default class App extends Component {
             this.removeDuplicateFromOrder();
             ifDuplicate = false;
         }
+
+        localStorage.setItem("order", JSON.stringify(this.state.order));
 
     };
 
@@ -84,8 +87,7 @@ export default class App extends Component {
         };
 
         return (
-            <div>
-                {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
+            <React.Fragment>
                 <Header
                     store={true}
                     user={true}
@@ -94,18 +96,17 @@ export default class App extends Component {
                     removeFromOrder={this.removeFromOrder}
                     showOrderList={this.showOrderList}
                 />
-                <Order style={orderListCss} order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+                <Order style={orderListCss} order={this.state.order} removeFromOrder={this.removeFromOrder} />
 
                 <main className="main">
+                    {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
                     <div className="container">
                         <div className="row justify-content-center">
                             <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
                         </div>
                     </div>
                 </main>
-
-                <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }
