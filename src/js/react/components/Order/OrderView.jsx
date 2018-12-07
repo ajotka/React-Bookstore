@@ -10,7 +10,10 @@ export default class OrderView extends React.Component {
                     <div className="book__title">{this.props.book.name}</div>
                     <div className="book__author">{this.props.book.author}</div>
                 </div>
-                <button className="btn btn--outline orders__item-button" onClick={ () => this.props.removeFromOrder(this.props.book.name) }>Remove</button>
+                <div>
+                    <p>x{this.props.book.qty}</p>
+                    <button className="btn btn--outline orders__item-button" onClick={ () => this.props.removeFromOrder(this.props.book.name) }>Remove</button>
+                </div>
             </div>
         );
     }

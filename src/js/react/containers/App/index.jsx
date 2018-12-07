@@ -16,12 +16,44 @@ export default class App extends Component {
     }
 
     addToOrder = (book) => {
+
+        let ifDuplicate = false;
+
+        if(isNaN(book.qty)) {
+            book.qty = 1;
+        } else {
+            book.qty++;
+        }
+
+        this.state.order.map( (element) => {
+
+            if(element.name === book.name) {
+                ifDuplicate = true;
+            }
+        });
+
         this.setState({
             order : [...this.state.order, book]
+        });
+
+        if(ifDuplicate) {
+            this.removeDuplicateFromOrder();
+            ifDuplicate = false;
+        }
+
+    };
+
+    removeDuplicateFromOrder = () => {
+        this.setState({
+            order : this.state.order.slice(0, this.state.order.length)
         });
     };
 
     removeFromOrder = (bookName) => {
+        this.state.order.map( (element, index) => {
+            if(element.name == bookName) { this.state.order[index].qty = 0; }
+        });
+
         this.setState({
             order : this.state.order.filter( book => bookName !== book.name )
         });
@@ -42,8 +74,6 @@ export default class App extends Component {
         this.setState({
             clicked : !this.state.clicked
         })
-
-        console.log(this.state.clicked);
 
     };
 

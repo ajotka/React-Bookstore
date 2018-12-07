@@ -12,7 +12,8 @@ class BookForm extends React.Component {
                 author : "",
                 description : "",
                 onStock : true,
-                image : ""
+                image : "",
+                qty : 0
             }
         };
     }
@@ -56,7 +57,8 @@ class BookForm extends React.Component {
                 author : "",
                 description : "",
                 onStock : true,
-                image : ""
+                image : "",
+                qty : 0
             }
         });
 

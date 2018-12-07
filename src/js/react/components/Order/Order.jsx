@@ -7,8 +7,8 @@ class Order extends React.Component {
 
         const orderedBooksLength = this.props.order.length;
 
-        const orderedBooks = this.props.order.map(order => {
-            return <OrderView book={order} removeFromOrder={this.props.removeFromOrder} />
+        const orderedBooks = this.props.order.map((order, index) => {
+            return <OrderView key={index} book={order} removeFromOrder={this.props.removeFromOrder} />
         });
 
         return (
