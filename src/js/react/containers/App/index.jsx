@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Inventory from '../../components/Inventory/Inventory';
 import Order from '../../components/Order/Order';
-import Footer from "../../components/Footer/Footer";
-import OrderSummary from "../../components/Order/OrderSummary";
 
 export default class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            order : [],
+            order : JSON.parse(localStorage.getItem("order")),
             clicked : false,
             display : "none"
         }
@@ -22,27 +20,27 @@ export default class App extends Component {
 
         if(isNaN(book.qty)) {
             book.qty = 1;
-        } else {
-            book.qty++;
         }
 
         this.state.order.map( (element) => {
 
             if(element.name === book.name) {
                 ifDuplicate = true;
+                element.qty++;
             }
+
         });
 
         this.setState({
             order : [...this.state.order, book]
         });
 
+        localStorage.setItem("order", JSON.stringify(this.state.order));
+
         if(ifDuplicate) {
             this.removeDuplicateFromOrder();
             ifDuplicate = false;
         }
-
-        localStorage.setItem("order", JSON.stringify(this.state.order));
 
     };
 
@@ -50,6 +48,8 @@ export default class App extends Component {
         this.setState({
             order : this.state.order.slice(0, this.state.order.length)
         });
+
+        localStorage.setItem("order", JSON.stringify(this.state.order));
     };
 
     removeFromOrder = (bookName) => {
@@ -60,6 +60,9 @@ export default class App extends Component {
         this.setState({
             order : this.state.order.filter( book => bookName !== book.name )
         });
+
+        localStorage.setItem("order", JSON.stringify(this.state.order.filter( book => bookName !== book.name )));
+
     };
 
     showOrderList = () => {

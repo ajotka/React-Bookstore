@@ -13,7 +13,8 @@ export default class OrderSummaryViewView extends React.Component {
                     <p><span>Author:</span> {this.props.book.author}</p>
                 </div>
                 <div className="card__footer">
-                    <button className="btn btn--outline btn--center" onClick={ () => this.props.addToOrder(this.props.book) }>Remove</button>
+                    <p>x{this.props.book.qty}</p>
+                    <button className="btn btn--outline btn--center" onClick={ () => this.props.removeFromOrder(this.props.book) }>Remove</button>
                 </div>
             </div>
         );
