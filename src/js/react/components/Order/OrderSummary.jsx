@@ -90,7 +90,7 @@ class OrderSummary extends React.Component {
                                             <button className="btn btn--center" onClick={() =>
                                                 container.success(`You can reciept your order from 10.10.2018`, `Success`, {
                                                     closeButton: true,
-                                                });
+                                                })
                                             }>Proceed</button>
                                         </div>
                                     </div>
