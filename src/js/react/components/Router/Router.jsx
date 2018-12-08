@@ -5,6 +5,7 @@ import AdminPanel from '../AdminPanel/AdminPanel';
 import OrderSummary from "../Order/OrderSummary";
 import PageNotFound from './PageNotFound';
 import Footer from "../Footer/Footer";
+import Package from "../../../../../package.json";
 
 export default class Router extends React.Component {
 
@@ -13,9 +14,9 @@ export default class Router extends React.Component {
         return (
             <React.Fragment>
 
-                <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <BrowserRouter basename={Package.basename}>
                     <Switch>
-                        <Route exact  path='/' component={App} />
+                        <Route path='/' component={App} />
                         <Route path='/admin' component={AdminPanel} />
                         <Route path='/order' component={OrderSummary} />
                         <Route component={PageNotFound} />
