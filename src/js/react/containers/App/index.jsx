@@ -24,20 +24,22 @@ export default class App extends Component {
             book.qty = 1;
         }
 
-        this.state.order.map((element) => {
+        if(this.state.order) {
+            this.state.order.map((element) => {
 
-            if (element.name === book.name) {
-                ifDuplicate = true;
-                element.qty++;
-            }
+                if (element.name === book.name) {
+                    ifDuplicate = true;
+                    element.qty++;
+                }
 
-        });
+            });
+        }
 
         this.setState({
             order: [...this.state.order, book]
         });
 
-        localStorage.setItem("order", JSON.stringify(this.state.order));
+        localStorage.setItem("order", JSON.stringify([...this.state.order, book]));
 
         if (ifDuplicate) {
             this.removeDuplicateFromOrder();
