@@ -47,6 +47,5 @@
     "lint:js": "eslint src",
     "lint:css": "stylelint src/scss"
   },
-  "homepage": "https://ajotka.github.io/React-Bookstore",
-  "basename": "/React-Bookstore"
+  "homepage": "https://ajotka.github.io"
 }
