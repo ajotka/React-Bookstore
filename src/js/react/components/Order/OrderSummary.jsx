@@ -13,7 +13,9 @@ class OrderSummary extends React.Component {
         }
     }
 
-    removeFromOrder = (bookName) => {
+    removeFromOrderSummary = (bookName) => {
+
+        console.log("Remove");
         this.state.order.map( (element, index) => {
             if(element.name == bookName) { this.state.order[index].qty = 0; }
         });
@@ -22,7 +24,7 @@ class OrderSummary extends React.Component {
             order : this.state.order.filter( book => bookName !== book.name )
         });
 
-        localStorage.setItem("order", JSON.stringify(this.state.order));
+        localStorage.setItem("order", JSON.stringify(this.state.order.filter( book => bookName !== book.name )));
 
     };
 
@@ -51,7 +53,7 @@ class OrderSummary extends React.Component {
         if( this.state.order ) {
             bookListing = this.state.order.map((book, index) => {
                 orderedBooks += book.qty;
-                return <OrderSummaryView key={index} book={book} removeFromOrder={this.removeFromOrder} />
+                return <OrderSummaryView key={index} book={book} removeFromOrderSummary={this.removeFromOrderSummary} />
             });
 
         }
