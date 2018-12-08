@@ -15,7 +15,6 @@ class OrderSummary extends React.Component {
 
     removeFromOrderSummary = (bookName) => {
 
-        console.log("Remove");
         this.state.order.map( (element, index) => {
             if(element.name == bookName) { this.state.order[index].qty = 0; }
         });

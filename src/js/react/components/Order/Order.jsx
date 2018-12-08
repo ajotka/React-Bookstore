@@ -6,11 +6,15 @@ class Order extends React.Component {
 
     render() {
 
-        const orderedBooksLength = this.props.order.length;
+        let orderedBooksLength = 0;
+        let orderedBooks;
 
-        const orderedBooks = this.props.order.map((order, index) => {
-            return <OrderView key={index} book={order} removeFromOrder={this.props.removeFromOrder} />
-        });
+        if(this.props.order) {
+            orderedBooksLength = this.props.order.length;
+            orderedBooks = this.props.order.map((order, index) => {
+                return <OrderView key={index} book={order} removeFromOrder={this.props.removeFromOrder} />
+            });
+        }
 
         return (
             <div className="orders" style={this.props.style}>
