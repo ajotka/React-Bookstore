@@ -35,11 +35,17 @@ export default class App extends Component {
             });
         }
 
-        this.setState({
-            order: [...this.state.order, book]
-        });
-
-        localStorage.setItem("order", JSON.stringify([...this.state.order, book]));
+        if(Array.isArray(this.state.order)) {
+            this.setState({
+                order: [...this.state.order, book]
+            });
+            localStorage.setItem("order", JSON.stringify([...this.state.order, book]));
+        } else {
+            this.setState({
+                order: [book]
+            });
+            localStorage.setItem("order", JSON.stringify([book]));
+        }
 
         if (ifDuplicate) {
             this.removeDuplicateFromOrder();
@@ -62,7 +68,7 @@ export default class App extends Component {
 
     removeFromOrder = (bookName) => {
         this.state.order.map((element, index) => {
-            if (element.name == bookName) {
+            if (element.name === bookName) {
                 this.state.order[index].qty = 0;
             }
         });
