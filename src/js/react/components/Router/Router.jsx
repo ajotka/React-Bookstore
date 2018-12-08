@@ -13,7 +13,7 @@ export default class Router extends React.Component {
         return (
             <React.Fragment>
 
-                <BrowserRouter>
+                <BrowserRouter basename="/React-Bookstore">
                     <Switch>
                         <Route exact path='/' component={App} />
                         <Route path='/admin' component={AdminPanel} />
