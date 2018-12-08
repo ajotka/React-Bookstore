@@ -16,9 +16,9 @@ export default class Router extends React.Component {
 
                 <BrowserRouter basename={Package.basename}>
                     <Switch>
-                        <Route path='/' component={App} />
-                        <Route path='/admin' component={AdminPanel} />
-                        <Route path='/order' component={OrderSummary} />
+                        <Route path={`${process.env.PUBLIC_URL}/`} component={App} />
+                        <Route path={`${process.env.PUBLIC_URL}/admin`} component={AdminPanel} />
+                        <Route path={`${process.env.PUBLIC_URL}/order`} component={OrderSummary} />
                         <Route component={PageNotFound} />
                     </Switch>
                 </BrowserRouter>
