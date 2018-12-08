@@ -6,6 +6,7 @@ a:hover
 a {
   color: #ECF0F5;
   text-decoration: none;
+  transition: 0.3s;
 
   &:hover {
     color: rgba(#ECF0F5, 0.75);

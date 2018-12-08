@@ -26,17 +26,34 @@ class OrderSummary extends React.Component {
 
     };
 
+    addDays = (date, days) => {
+        let result = new Date(date);
+        result.setDate(date.getDate() + days);
+        return result;
+    };
+
+    formatDate = (date) => {
+        return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
+    };
+
     render() {
 
         let orderedBooks = 0;
         let bookListing = "";
         let container;
+        const today = new Date();
+        const receiptDuration = 2;
+        const returnDuration = 60;
+
+        let receiptDate = this.addDays(today, receiptDuration);
+        let returnDate = this.addDays(today, returnDuration);
 
         if( this.state.order ) {
             bookListing = this.state.order.map((book, index) => {
                 orderedBooks += book.qty;
                 return <OrderSummaryView key={index} book={book} removeFromOrder={this.removeFromOrder} />
             });
+
         }
 
         return (
@@ -83,12 +100,12 @@ class OrderSummary extends React.Component {
                                         <div className="card__body">
                                             <p><span>Client number:</span> #123456789</p>
                                             <p><span>Number of books:</span> {orderedBooks}</p>
-                                            <p><span>Date of receipt:</span> 10.10.2018</p>
-                                            <p><span>Date of return:</span> 10.10.2018</p>
+                                            <p><span>Date of receipt:</span> {this.formatDate(receiptDate)}</p>
+                                            <p><span>Date of return:</span> {this.formatDate(returnDate)}</p>
                                         </div>
                                         <div className="card__footer">
                                             <button className="btn btn--center" onClick={() =>
-                                                container.success(`You can reciept your order from 10.10.2018`, `Success`, {
+                                                container.success(`You can reciept your order from ${receiptDate}`, `Success`, {
                                                     closeButton: true,
                                                 })
                                             }>Proceed</button>

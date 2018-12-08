@@ -35,12 +35,12 @@ class Header extends React.Component {
                 </div>
                 <div className="header__title">
                     <h1 className="h1">
-                        {this.state.bookstoreName}
+                        <Link to="/">{this.state.bookstoreName}</Link>
                     </h1>
                 </div>
                 <div className="header__icons">
                     {this.props.store &&
-                            <i className="icon icon-shopping-basket" data-badge={orderedBooks} onClick={ () => this.props.showOrderList() }></i>
+                        <Link to=""><i className="icon icon-shopping-basket" data-badge={orderedBooks} onClick={ () => this.props.showOrderList() }></i></Link>
                     }
                     {this.props.user && <Link to="/admin"><i className="icon icon-user"></i></Link> }
                     {this.props.logout && <Link to="/" onClick={this.handleClickLogout}><i className="icon icon-sign-out"></i></Link> }
