@@ -1,7 +1,11 @@
 footer {
   position: absolute;
-  bottom: -30px;
-  margin: 0 auto;
+  @media (min-width: 768px) {
+    bottom: -30px;
+    margin: 0 auto;
+  }
+  bottom: 0;
+  margin: 25px auto;
   width: 100%;
   text-align: center;
   color: #6C6C6C;

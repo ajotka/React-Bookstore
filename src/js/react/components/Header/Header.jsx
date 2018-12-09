@@ -40,7 +40,7 @@ class Header extends React.Component {
                 </div>
                 <div className="header__icons">
                     {this.props.store &&
-                        <Link to=""><i className="icon icon-shopping-basket" data-badge={orderedBooks} onClick={ () => this.props.showOrderList() }></i></Link>
+                        <Link to="#"><i className="icon icon-shopping-basket" data-badge={orderedBooks} onClick={ () => this.props.showOrderList() }></i></Link>
                     }
                     {this.props.user && <Link to="/admin"><i className="icon icon-user"></i></Link> }
                     {this.props.logout && <Link to="/" onClick={this.handleClickLogout}><i className="icon icon-sign-out"></i></Link> }
