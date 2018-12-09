@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import { ToastContainer } from "react-toastr";
+import toastr from "reactjs-toastr";
 import OrderSummaryView from "./OrderSummaryView";
 import Header from "../Header/Header";
 
@@ -41,7 +41,7 @@ class OrderSummary extends React.Component {
 
         let orderedBooks = 0;
         let bookListing = "";
-        let container;
+
         const today = new Date();
         const receiptDuration = 2;
         const returnDuration = 60;
@@ -64,11 +64,6 @@ class OrderSummary extends React.Component {
                     user={true}
                     logout={false}
                     order={this.state.order}
-                />
-
-                <ToastContainer
-                    ref={ref => container = ref}
-                    className="toast-bottom-right"
                 />
 
                 <main className="main">
@@ -106,9 +101,7 @@ class OrderSummary extends React.Component {
                                         </div>
                                         <div className="card__footer">
                                             <button className="btn btn--center" onClick={() =>
-                                                container.success(`You can reciept your order from ${receiptDate}`, `Success`, {
-                                                    closeButton: true,
-                                                })
+                                                toastr.success(`You can reciept your order from ${receiptDate}`, 'Success', {displayDuration:3000})
                                             }>Proceed</button>
                                         </div>
                                     </div>

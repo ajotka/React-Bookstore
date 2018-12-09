@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ToastContainer} from "react-toastr";
+import toastr from "reactjs-toastr";
 import Header from '../../components/Header/Header';
 import Inventory from '../../components/Inventory/Inventory';
 import Order from '../../components/Order/Order';
@@ -11,8 +11,7 @@ export default class App extends Component {
         this.state = {
             order: JSON.parse(localStorage.getItem("order")),
             clicked: true,
-            display: "none",
-            container: ""
+            display: "none"
         }
     }
 
@@ -52,9 +51,7 @@ export default class App extends Component {
             ifDuplicate = false;
         }
 
-        this.state.container.success(`Book ${book.name} was added to your order`, `Success`, {
-            closeButton: true,
-        })
+        toastr.success(`Book ${book.name} was added to your order`, 'Success', {displayDuration:3000});
 
     };
 
@@ -117,11 +114,6 @@ export default class App extends Component {
                     showOrderList={this.showOrderList}
                 />
                 <Order style={orderListCss} order={this.state.order} removeFromOrder={this.removeFromOrder} />
-
-                <ToastContainer
-                    ref={ref => this.state.container = ref}
-                    className="toast-bottom-right"
-                />
 
                 <main className="main">
                     {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
