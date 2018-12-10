@@ -100,9 +100,7 @@ class OrderSummary extends React.Component {
                                             <p><span>Date of return:</span> {this.formatDate(returnDate)}</p>
                                         </div>
                                         <div className="card__footer">
-                                            <button className="btn btn--center" onClick={() =>
-                                                toastr.success(`You can reciept your order from ${receiptDate}`, 'Success', {displayDuration:3000})
-                                            }>Proceed</button>
+                                            <Link to={{pathname: '/', state: { prevPath: location.pathname }}}><button className="btn btn--center">Proceed</button></Link>
                                         </div>
                                     </div>
                                 </React.Fragment>

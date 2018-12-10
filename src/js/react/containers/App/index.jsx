@@ -103,6 +103,16 @@ export default class App extends Component {
             display : this.state.display
         };
 
+        if(typeof this.props.location.state !== "undefined"){
+            console.log(this.props.location.state.prevPath);
+            
+            if(this.props.location.state.prevPath.includes("/order")) {
+                toastr.success(`Order created`, 'Success', {displayDuration:3000});
+            }
+
+        }
+
+
         return (
             <React.Fragment>
                 <Header
